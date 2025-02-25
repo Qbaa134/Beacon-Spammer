@@ -1,5 +1,5 @@
 const uint8_t channels[] = {1, 6, 11}; 
-const bool wpa2 = false; 
+const bool wpa2 = true; 
 const bool appendSpaces = true;
 
 const char ssids[] PROGMEM = {
