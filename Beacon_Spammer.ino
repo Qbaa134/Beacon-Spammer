@@ -2,7 +2,7 @@ const uint8_t channels[] = {1, 6, 11};
 const bool wpa2 = true; 
 const bool appendSpaces = true;
 
-const char ssids[] PROGMEM = {
+const char ssids[] PROGMEM = {//Tu możesz wpisać własne SSID sieci. There you can enter your own network SSIDs.
   "Kabel mi urwiesz\n"
   "Miejskie\n"
   "WiFiZSamsung\n"
@@ -209,8 +209,6 @@ void nextChannel() {
     }
   }
 }
-
-// Random MAC generator
 void randomMac() {
   for (int i = 0; i < 6; i++){
      macAddr[i] = random(256);
@@ -218,14 +216,10 @@ void randomMac() {
 }
 
 void setup() {
-  // create empty SSID
   for (int i = 0; i < 32; i++)
     emptySSID[i] = ' ';
-
-  // for random generator
   randomSeed(os_random());
 
-  // set packetSize
   packetSize = sizeof(beaconPacket);
   if (wpa2) {
     beaconPacket[34] = 0x31;
@@ -236,14 +230,11 @@ void setup() {
 
   randomMac();
 
-  // start serial
   Serial.begin(115200);
   Serial.println();
-
-  // get time
+  
   currentTime = millis();
 
-  // start WiFi
   WiFi.mode(WIFI_OFF);
   wifi_set_opmode(STATION_MODE);
   
