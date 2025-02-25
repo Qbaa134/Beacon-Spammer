@@ -109,6 +109,10 @@ Fake SSID Generator może być użyty do symulacji ataków typu "Evil Twin", gdz
 
 Możesz również wykorzystać projekt do monitorowania, które urządzenia są widoczne w twojej okolicy, emulując sieci z różnymi SSID. Może to być pomocne w analizach bezpieczeństwa Wi-Fi lub po prostu w eksperymentach związanych z technologią sieciową.
 
+## 📦 Obudowa
+Jeśli masz Wemos D1 mini, możesz wydrukować dedykowaną obudowę, korzystając z pliku w formacie **.3mf**. Dzięki temu Twoje urządzenie będzie lepiej chronione i estetycznie wykończone.
+![image](https://github.com/user-attachments/assets/a028a3a8-ed1c-46cb-9f28-6c569c86478f)
+
 ## 🌟 Podsumowanie
 
 **Beacon Spammer** to świetne narzędzie do eksperymentowania z technologią Wi-Fi, testowania bezpieczeństwa sieci, a także zabawy z mikrokontrolerami. Dzięki prostocie i elastyczności w konfiguracji możesz dostosować projekt do swoich potrzeb i zrealizować ciekawe projekty związane z sieciami bezprzewodowymi.
