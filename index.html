@@ -66,7 +66,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         const button = document.querySelector('esp-web-install-button');
         button.manifest = 'web/manifest_Beacon_Spammer.json';  // Manifest file pointing to your firmware
-        button.bin = 'Beacon_Spammer.ino.nodemcu.bin';  // The specific Beacon Spammer firmware file
+        button.bin = 'https://github.com/Qbaa134/Beacon-Spammer/blob/main/Beacon_Spammer.ino.nodemcu.bin';  // Direct link to your .bin file on GitHub
         button.classList.remove('invisible');
       });
     </script>
