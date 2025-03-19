@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Beacon Spammer Installer</title>
-    <meta name="description" content="Easily allow users to install Beacon Spammer." />
+    <meta
+      name="description"
+      content="Easily allow users to install Beacon Spammer."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark light" />
+    
     <style>
       body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f7fa;
-        margin: 0;
         padding: 0;
+        margin: 0;
+        background-color: #f4f4f9;
         line-height: 1.6;
         color: #333;
       }
@@ -19,53 +23,88 @@
       .content {
         max-width: 600px;
         margin: 0 auto;
-        padding: 30px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-top: 50px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
       }
 
       h1 {
-        font-size: 2.5em;
+        font-size: 2em;
+        margin-bottom: 16px;
         text-align: center;
         color: #007bff;
-        margin-bottom: 20px;
+      }
+
+      h2 {
+        margin-top: 1.5em;
+        font-size: 1.5em;
+        color: #555;
+      }
+
+      h3 {
+        margin-top: 1em;
+        font-size: 1.25em;
+        color: #666;
       }
 
       p {
+        font-size: 1.1em;
+        color: #444;
         text-align: center;
-        font-size: 1.2em;
-        margin-bottom: 30px;
+      }
+
+      a {
+        color: #03a9f4;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
       }
 
       .radios {
+        margin-top: 1.5em;
         list-style: none;
         padding: 0;
-        text-align: center;
       }
 
       .radios li {
-        margin-bottom: 20px;
-        font-size: 1.1em;
+        font-size: 1.2em;
+        margin: 10px 0;
       }
 
-      input[type="radio"] {
-        margin-right: 10px;
+      .radios input {
+        margin-right: 8px;
+      }
+
+      .footer {
+        margin-top: 24px;
+        border-top: 1px solid #ccc;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 0.9em;
+        color: #666;
+      }
+
+      .footer .initiative {
+        font-style: italic;
+        margin-top: 12px;
       }
 
       .button-row {
+        margin-top: 20px;
         text-align: center;
-        margin-top: 30px;
       }
 
       esp-web-install-button {
-        padding: 15px 30px;
-        font-size: 1.2em;
         background-color: #007bff;
-        color: white;
         border: none;
-        border-radius: 8px;
+        padding: 12px 24px;
+        color: white;
+        font-size: 1.1em;
+        border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.3s ease;
       }
@@ -74,56 +113,32 @@
         background-color: #0056b3;
       }
 
-      esp-web-install-button.invisible {
-        visibility: hidden;
-      }
-
-      .footer {
-        margin-top: 40px;
-        text-align: center;
-        font-size: 0.9em;
-        color: #777;
-      }
-
-      .footer a {
-        color: #007bff;
-        text-decoration: none;
-      }
-
-      .footer .initiative {
-        font-style: italic;
-        margin-top: 16px;
-      }
-
       @media (prefers-color-scheme: dark) {
         body {
           background-color: #333;
-          color: white;
+          color: #fff;
         }
 
         .content {
           background-color: #444;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+          color: #eee;
         }
 
-        h1 {
+        a {
           color: #58a6ff;
         }
 
-        esp-web-install-button {
-          background-color: #0056b3;
-        }
-
-        esp-web-install-button:hover {
-          background-color: #003f7f;
+        .footer {
+          color: #bbb;
         }
       }
     </style>
   </head>
+
   <body>
     <div class="content">
       <h1>Qbaa134 Beacon Spammer Flasher</h1>
-      <p>Choose your hardware</p>
+      <p>Select your hardware:</p>
       <ul class="radios">
         <li>
           <label><input type="radio" name="type" value="BS1" /> Beacon Spammer Classic</label>
@@ -134,16 +149,11 @@
       </p>
     </div>
 
-    <div class="footer">
-      <p>Made by <a href="https://github.com/qbaa134" target="_blank">Qbaa134</a></p>
-      <p class="initiative">An open-source project. Feel free to contribute!</p>
-    </div>
-
     <script>
       document.querySelectorAll('input[name="type"]').forEach(radio =>
         radio.addEventListener("change", () => {
           const button = document.querySelector('esp-web-install-button');
-          button.manifest = `manifest_BS1.json`; // Zakładając, że plik manifest_BS1.json jest dostępny
+          button.manifest = "manifest_BS1.json";
           button.classList.remove('invisible');
         })
       );
