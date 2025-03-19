@@ -81,24 +81,23 @@
   </head>
   <body>
     <div class="content">
-      <h1>Qbaa134 Beacon Spammer Flasher</h1>
-      <p>Choose hardware</p>
+      <h1>Qbaa134 Beacon Spammer</h1>
+      <p>Choose  hardware</p>
       <ul class="radios">
         <li>
-          <label><input type="radio" name="type" value="Bs1" /> Beacon Spammer Classic Esp8266</label>
-        </li>
+          <label><input type="radio" name="type" value="BS1" /> Beacon Spammer Classic Esp8266</label>
+     
       </ul>
       <p class="button-row" align="center">
         <esp-web-install-button class="invisible"></esp-web-install-button>
       </p>
-
 
     <script>
 	
       document.querySelectorAll('input[name="type"]').forEach(radio =>
         radio.addEventListener("change", () => {
           const button = document.querySelector('esp-web-install-button');
-          button.manifest = manifest_BS1.json;
+          button.manifest = `manifest_BS1.json`;
           button.classList.remove('invisible');
         }
       ));
