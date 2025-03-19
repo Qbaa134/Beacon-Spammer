@@ -1,109 +1,151 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="pl">
   <head>
     <meta charset="utf-8" />
     <title>Beacon Spammer Installer</title>
-    <meta
-      name="description"
-      content="Easily allow users to install Beacon Spammer."
-    />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Easily allow users to install Beacon Spammer." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark light" />
-    
-    
     <style>
       body {
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Ubuntu, sans-serif;
-        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7fa;
         margin: 0;
-        line-height: 1.4;
+        padding: 0;
+        line-height: 1.6;
+        color: #333;
       }
+
       .content {
         max-width: 600px;
         margin: 0 auto;
-        padding: 12px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
       }
-      h2 {
-        margin-top: 2em;
+
+      h1 {
+        font-size: 2.5em;
+        text-align: center;
+        color: #007bff;
+        margin-bottom: 20px;
       }
-      h3 {
-        margin-top: 1.5em;
+
+      p {
+        text-align: center;
+        font-size: 1.2em;
+        margin-bottom: 30px;
       }
-      a {
-        color: #03a9f4;
-      }
-      .invisible {
-        visibility: hidden;
-      }
-      .hidden {
-        display: none;
-      }
-      esp-web-install-button[install-unsupported] {
-        visibility: inherit;
-      }
-      .content pre {
-        max-width: 100%;
-        overflow-y: scroll;
-      }
-      .footer {
-        margin-top: 24px;
-        border-top: 1px solid #ccc;
-        padding-top: 24px;
+
+      .radios {
+        list-style: none;
+        padding: 0;
         text-align: center;
       }
+
+      .radios li {
+        margin-bottom: 20px;
+        font-size: 1.1em;
+      }
+
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      .button-row {
+        text-align: center;
+      }
+
+      esp-web-install-button {
+        padding: 12px 24px;
+        font-size: 1.1em;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      esp-web-install-button:hover {
+        background-color: #0056b3;
+      }
+
+      esp-web-install-button.invisible {
+        visibility: hidden;
+      }
+
+      .footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 0.9em;
+        color: #777;
+      }
+
+      .footer a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
       .footer .initiative {
         font-style: italic;
         margin-top: 16px;
       }
-      table {
-        border-spacing: 0;
-      }
-      td {
-        padding: 8px;
-        border-bottom: 1px solid #ccc;
-      }
-      .radios li {
-        list-style: none;
-        line-height: 2em;
-      }
+
       @media (prefers-color-scheme: dark) {
         body {
           background-color: #333;
-          color: #fff;
+          color: white;
         }
-        a {
+
+        .content {
+          background-color: #444;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
           color: #58a6ff;
+        }
+
+        esp-web-install-button {
+          background-color: #0056b3;
+        }
+
+        esp-web-install-button:hover {
+          background-color: #003f7f;
         }
       }
     </style>
-    <script type="module" src="https://unpkg.com/esp-web-tools@8.0.1/dist/web/install-button.js?module"></script>
   </head>
   <body>
     <div class="content">
       <h1>Qbaa134 Beacon Spammer Flasher</h1>
-      <p>Choose hardware</p>
+      <p>Choose your hardware</p>
       <ul class="radios">
         <li>
           <label><input type="radio" name="type" value="BS1" /> Beacon Spammer Classic</label>
         </li>
-     
       </ul>
-      <p class="button-row" align="center">
+      <p class="button-row">
         <esp-web-install-button class="invisible"></esp-web-install-button>
       </p>
-
     </div>
+
+    <div class="footer">
+      <p>Made by <a href="https://github.com/qbaa134" target="_blank">Qbaa134</a></p>
+      <p class="initiative">An open-source project. Feel free to contribute!</p>
+    </div>
+
     <script>
-	
       document.querySelectorAll('input[name="type"]').forEach(radio =>
         radio.addEventListener("change", () => {
           const button = document.querySelector('esp-web-install-button');
           button.manifest = `manifest_BS1.json`;
           button.classList.remove('invisible');
-        }
-      ));
+        })
+      );
     </script>
   </body>
 </html>
