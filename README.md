@@ -43,7 +43,7 @@ Aby uruchomić projekt, będziesz potrzebował:
 1. Po wgraniu oprogramowania połącz się z wifi `beacon` wpisując hasło `password`.
 2. W przeglądarce wpisz adres ip Esp8266, czyli `192.168.4.1.` lub [kliknij w link](http://192.168.4.1/).
 3. Wpisz 100 SSID sieci i kliknij `Zielony Przycisk`.
-4. Wejdź do [serial monitora](https://qbaa134.github.io/esp-tool/).
+4. Wejdź do [serial monitora](https://qbaa134.github.io/esp-tool/) i połacz się z Esp8266.
 
 ## ⚙️ Jak to działa?
 
@@ -85,7 +85,7 @@ Możesz zamienić `"twojasieć"` na dowolny ciąg znaków, który będzie począ
 
 ### WPA2
 
-W projekcie zaimplementowano możliwość włączenia trybu WPA2. Jeśli chcesz, aby twoje sieci były "zabezpieczone" przy pomocy WPA2, ustaw zmienną `wpa2` na `true`:
+W projekcie zaimplementowano możliwość włączenia/wyłączenia trybu WPA2. Jeśli chcesz, aby twoje sieci były "zabezpieczone" przy pomocy WPA2, ustaw zmienną `wpa2` na `true`:
 
 ```cpp
 const bool wpa2 = true;  // Tryb WPA2
