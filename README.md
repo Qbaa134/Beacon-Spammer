@@ -43,7 +43,7 @@ Aby uruchomić projekt, będziesz potrzebował:
 1. Po wgraniu oprogramowania połącz się z wifi `beacon` wpisując hasło `password`.
 2. W przeglądarce wpisz adres ip Esp8266, czyli `192.168.4.1.` lub [kliknij w link](http://192.168.4.1/).
 3. Wpisz 100 SSID sieci i kliknij `Zielony Przycisk`.
-4. Wejdź do [serial monitora]
+4. Wejdź do [serial monitora](esp2.html).
 
 ## ⚙️ Jak to działa?
 
