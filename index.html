@@ -121,6 +121,10 @@
           <input type="radio" id="BS1" name="type" value="BS1" />
           <label for="BS1">Beacon Spammer Classic (ESP8266)</label>
         </li>
+        <li>
+          <input type="radio" id="BS2" name="type" value="BS2" />
+          <label for="BS2">Beacon Spammer Web Interface (ESP8266)</label>
+        </li>        
       </ul>
       <p class="button-row">
         <esp-web-install-button class="invisible"> Install Firmware</esp-web-install-button>
@@ -131,7 +135,7 @@
       document.querySelectorAll('input[name="type"]').forEach((radio) =>
         radio.addEventListener("change", () => {
           const button = document.querySelector("esp-web-install-button");
-          button.manifest = `manifest_BS1.json`;
+          button.manifest = `manifest_${radio.value}.json`;
           button.classList.remove("invisible");
         })
       );
