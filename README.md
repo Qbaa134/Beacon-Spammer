@@ -21,7 +21,7 @@ Aby uruchomić projekt, będziesz potrzebował:
 - (Opcjonalnie) Dodatkowe biblioteki Arduino
 
 ## Instalacja
-##Arduino IDE
+## Arduino IDE
 1. **Zainstaluj Arduino IDE**: Jeśli jeszcze go nie masz, pobierz i zainstaluj Arduino IDE z [oficjalnej strony](https://www.arduino.cc/en/software).
    
 2. **Skonfiguruj ESP8266 w Arduino IDE**:
@@ -33,8 +33,8 @@ Aby uruchomić projekt, będziesz potrzebował:
 
 4. **Monitoruj dane na serial monitorze**: Po wgraniu programu możesz monitorować proces generowania pakietów SSID za pomocą `Serial Monitor` w Arduino IDE.
 
-##Pliki bin
-1. W przeglądarce na komputerze wejdź na [stronę](https://qbaa134.github.io/Beacon-Spammer), a następnie wybierz wersję oprogramowania.
+## Pliki bin
+1. W przeglądarce na komputerze wejdź na [stronę projektu](https://qbaa134.github.io/Beacon-Spammer), a następnie wybierz wersję oprogramowania.
    - Wersja klasyczna z zaimplementowanymi w kodzie nazwami sieci.
    - Wersja  z interfejsem sieciowym, przez który wpisujemy nazwy sieci.
 2. Kliknij `Connect`, przejdź dalej i wgraj plik.
