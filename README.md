@@ -39,7 +39,7 @@ Aby uruchomić projekt, będziesz potrzebował:
    - Wersja  z interfejsem sieciowym, przez który wpisujemy nazwy sieci.
 2. Kliknij `Connect`, przejdź dalej i wgraj plik.
 
-#Wersja z Interfejserm sieciowym
+# Wersja z Interfejserm sieciowym
 1. Po wgraniu oprogramowania połącz się z wifi `beacon` wpisując hasło `password`.
 2. W przeglądarce wpisz adres ip Esp8266, czyli `192.168.4.1.` lub [kliknij w link](http://192.168.4.1/).
 3. Wpisz 100 SSID sieci i kliknij `Zielony Przycisk`.
