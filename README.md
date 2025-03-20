@@ -1,8 +1,9 @@
 # 📡 Projekt Beacon Spammer 🚀
 Cześć! 👋 Witam Was w projekcie **Beacon Spammer**, który pozwala na generowanie fałszywych sieci Wi-Fi (SSID) za pomocą mikrokontrolera ESP8266. To narzędzie może być użyteczne w różnych scenariuszach, takich jak testowanie bezpieczeństwa sieci Wi-Fi 🔐, badanie zachowań urządzeń bezprzewodowych 🧑‍💻, czy po prostu eksperymentowanie z technologią 💡.
 
-## Nowość!
-**Teraz można wgrać szybciej skrypt [ze strony projektu](https://qbaa134.github.io/Beacon-Spammer).**
+# **NOWOŚĆ!**
+## **Teraz można wgrać szybciej skrypt [ze strony projektu](https://qbaa134.github.io/Beacon-Spammer).**
+
 
 ## 🎯 Cel projektu
 
@@ -19,8 +20,8 @@ Aby uruchomić projekt, będziesz potrzebował:
 - Kabel USB do połączenia mikrokontrolera z komputerem
 - (Opcjonalnie) Dodatkowe biblioteki Arduino
 
-### Instalacja
-
+## Instalacja
+##Arduino IDE
 1. **Zainstaluj Arduino IDE**: Jeśli jeszcze go nie masz, pobierz i zainstaluj Arduino IDE z [oficjalnej strony](https://www.arduino.cc/en/software).
    
 2. **Skonfiguruj ESP8266 w Arduino IDE**:
@@ -31,6 +32,18 @@ Aby uruchomić projekt, będziesz potrzebował:
 3. **Załaduj kod do ESP8266**: Skopiuj kod projektu do nowego szkicu w Arduino IDE i załaduj go do swojego mikrokontrolera ESP8266.
 
 4. **Monitoruj dane na serial monitorze**: Po wgraniu programu możesz monitorować proces generowania pakietów SSID za pomocą `Serial Monitor` w Arduino IDE.
+
+##Pliki bin
+1. W przeglądarce na komputerze wejdź na [stronę](https://qbaa134.github.io/Beacon-Spammer), a następnie wybierz wersję oprogramowania.
+   - Wersja klasyczna z zaimplementowanymi w kodzie nazwami sieci.
+   - Wersja  z interfejsem sieciowym, przez który wpisujemy nazwy sieci.
+2. Kliknij `Connect`, przejdź dalej i wgraj plik.
+
+#Wersja z Interfejserm sieciowym
+1. Po wgraniu oprogramowania połącz się z wifi `beacon` wpisując hasło `password`.
+2. W przeglądarce wpisz adres ip Esp8266, czyli `192.168.4.1.` lub [kliknij w link](http://192.168.4.1/).
+3. Wpisz 100 SSID sieci i kliknij `Zielony Przycisk`.
+4. Wejdź do [serial monitora]
 
 ## ⚙️ Jak to działa?
 
