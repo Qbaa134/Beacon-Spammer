@@ -46,6 +46,29 @@ Aby uruchomić projekt, będziesz potrzebował:
 4. Wejdź do [serial monitora](https://qbaa134.github.io/esp-tool/) i połacz się z Esp8266.
 ![image](https://github.com/user-attachments/assets/c70ba991-65eb-4a4b-bf80-91f123b81345)
 
+`SSID_name`
+`SSID_name`
+`SSID_name`  
+`SSID_name`
+`itd.`
+
+## Wpisywanie tego samego SSID
+Aby sieci były takie same trzeba dodać specjalny znak na końcu SSID.
+- siećx  
+- siećx  (zawiera ukryty znak po nazwie)
+- siećx (dwa ukryte znaki)
+- siećx (trzy ukryte znaki)
+- siećx (cztery ukryte znaki)
+
+1.Skopiuj znak Zero-Width Space:
+`  `← tutaj jest zero-width space (U+200B)
+To wygląda jak "pusta linia", ale znak tam jest. Wklej go na końcu SSID, ile razy chcesz.
+
+2.Możesz go wpisać za pomocą kombinacji:
+Alt + 8203 (na klawiaturze numerycznej)
+
+Te dwa sposoby dodadzą U+200B w miejscu kursora.
+
 ## ⚙️ Jak to działa?
 
 Projekt bazuje na wykorzystywaniu funkcji ESP8266 do emulowania sieci Wi-Fi poprzez wysyłanie specjalnie sformatowanych pakietów beacon. Pakiety te zawierają informacje o SSID (nazwie sieci), które będą widoczne dla urządzeń w zasięgu.
