@@ -46,11 +46,11 @@ Aby uruchomić projekt, będziesz potrzebował:
 4. Wejdź do [serial monitora](https://qbaa134.github.io/esp-tool/) i połacz się z Esp8266.
 ![image](https://github.com/user-attachments/assets/c70ba991-65eb-4a4b-bf80-91f123b81345)
 
-`SSID_name`
-`SSID_name`
-`SSID_name`  
-`SSID_name`
-`itd.`
+- `SSID_name`
+- `SSID_name`
+- `SSID_name`  
+- `SSID_name`
+- `itd.`
 
 ## Wpisywanie tego samego SSID
 Aby sieci były takie same trzeba dodać specjalny znak na końcu SSID.
@@ -59,6 +59,7 @@ Aby sieci były takie same trzeba dodać specjalny znak na końcu SSID.
 - `siećx` (dwa ukryte znaki)
 - `siećx` (trzy ukryte znaki)
 - `siećx` (cztery ukryte znaki)
+- `itd.`
 
 1.Skopiuj znak Zero-Width Space:
 
