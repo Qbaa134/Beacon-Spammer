@@ -54,17 +54,20 @@ Aby uruchomić projekt, będziesz potrzebował:
 
 ## Wpisywanie tego samego SSID
 Aby sieci były takie same trzeba dodać specjalny znak na końcu SSID.
-- siećx  
-- siećx  (zawiera ukryty znak po nazwie)
-- siećx (dwa ukryte znaki)
-- siećx (trzy ukryte znaki)
-- siećx (cztery ukryte znaki)
+- `siećx`  
+- `siećx` (zawiera ukryty znak po nazwie)
+- `siećx` (dwa ukryte znaki)
+- `siećx` (trzy ukryte znaki)
+- `siećx` (cztery ukryte znaki)
 
 1.Skopiuj znak Zero-Width Space:
+
 `  `← tutaj jest zero-width space (U+200B)
+
 To wygląda jak "pusta linia", ale znak tam jest. Wklej go na końcu SSID, ile razy chcesz.
 
 2.Możesz go wpisać za pomocą kombinacji:
+
 Alt + 8203 (na klawiaturze numerycznej)
 
 Te dwa sposoby dodadzą U+200B w miejscu kursora.
