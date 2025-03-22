@@ -2,7 +2,7 @@
 Cześć! 👋 Witam Was w projekcie **Beacon Spammer**, który pozwala na generowanie fałszywych sieci Wi-Fi (SSID) za pomocą mikrokontrolera ESP8266. To narzędzie może być użyteczne w różnych scenariuszach, takich jak testowanie bezpieczeństwa sieci Wi-Fi 🔐, badanie zachowań urządzeń bezprzewodowych 🧑‍💻, czy po prostu eksperymentowanie z technologią 💡.
 
 # **NOWOŚĆ!**
-## **Teraz można wgrać szybciej skrypt [ze strony projektu](https://qbaa134.github.io/Beacon-Spammer).**
+## **Teraz można wgrać szybciej skrypt [z oficjalnej strony projektu](https://qbaa134.github.io/Beacon-Spammer).**
 
 
 ## 🎯 Cel projektu
@@ -13,12 +13,48 @@ Możesz skonfigurować prefiks SSID, który będzie dodawany do każdej wysyłan
 
 ## 📦 Wymagania
 
-Aby uruchomić projekt, będziesz potrzebował:
-- Mikrokontroler ESP8266** (np. NodeMCU, Wemos D1 Mini):
+
 ![image](https://github.com/user-attachments/assets/6d378cec-3d35-4e42-a325-15104f413880)
-- **Środowisko Arduino IDE** z wgranym odpowiednim środowiskiem dla ESP8266
+Aby uruchomić skrypt będziesz potrzebował:
+- Mikrokontroler ESP8266 (np. NodeMCU, Wemos D1 Mini):
+- **Środowisko Arduino IDE** z wgranym odpowiednim środowiskiem dla ESP8266 lub [stronę projektu](https://qbaa134.github.io/Beacon-Spammer)
 - Kabel USB do połączenia mikrokontrolera z komputerem
 - (Opcjonalnie) Dodatkowe biblioteki Arduino
+
+### Opcjonalne części:
+- Li Po akumulator (najlepiej 1000mAh)
+- Moduł Tp4056
+- Dioda RGB K851264
+- Kondensator 10uF
+- Kabelki i przewody
+- Mini Switch SPDT
+- Przetwornica Mini Step Up 3,7V -> 5V
+- (Opcjonalnie dioda Shottky)
+
+## 🔌 Podłączenie
+![Tekst akapitu (1)](https://github.com/user-attachments/assets/51fac1a1-21c7-4ba1-a488-8bcc67fbcc9d)
+
+
+| **Źródło**        | **Cel**          |
+|-------------------|------------------|
+| Li Po +           | Tp4056 B+        |
+| Li Po -           | Tp4056 B-        |
+| Tp4056 OUT +      | Switch           |
+| Tp4056 OUT -      | Step Up -        |
+| Switch            | Step Up +        |
+| Step Up +         | 10uF             |
+| Step Up -         | 10uF             |
+| Step Up OUT +     | 3V3              |
+| Step Up OUT -     | G                |
+| RGB GND           | G                |
+| RGB R             | D5               |
+| RGB B             | D7               |
+| RGB G             | D6               |
+
+Kolory diody:
+- Czerwony: Brak aktywności
+- Niebieski: Klient podłączony do AP
+- Zielony: Trwa transmisja pakietów / Atak Rozpoczęty
 
 ## Instalacja
 ## Arduino IDE
@@ -72,6 +108,8 @@ To wygląda jak "pusta linia", ale znak tam jest. Wklej go na końcu SSID, ile r
 Alt + 8203 (na klawiaturze numerycznej)
 
 Te dwa sposoby dodadzą U+200B w miejscu kursora.
+## Wersja z RGB
+Wersja z RGB jest taka sama jak wersja z interfejsem sieciowym, ale do Esp podłączamy diodę, która w zależności od wykonywanej funkcji świeci na dany kolor.
 
 ## ⚙️ Jak to działa?
 
@@ -155,6 +193,25 @@ Możesz również wykorzystać projekt do monitorowania, które urządzenia są 
 ## 📦 Obudowa
 Jeśli masz Wemos D1 mini, możesz wydrukować dedykowaną obudowę, korzystając z pliku w formacie **.3mf**. Dzięki temu Twoje urządzenie będzie lepiej chronione i estetycznie wykończone.
 ![image](https://github.com/user-attachments/assets/a028a3a8-ed1c-46cb-9f28-6c569c86478f)
+
+## 🚀 Przyszłościowe Rozwinięcia
+
+- **Wsparcie WPA3** - Implementacja generowania beaconów ze wsparciem najnowszego standardu zabezpieczeń  
+- **Tryb Stealth** - Losowe odstępy czasowe między pakietami dla uniknięcia wykrycia  
+- **Dynamiczna zmiana kanałów** - Automatyczne skanowanie i wybór optymalnych kanałów WiFi  
+- **Deauthentication Attack** - Integracja funkcji wysyłania pakietów deauth  
+- **Geofencing** - Auto-wyłączanie transmisji w oparciu o lokalizację GPS  
+- **Advanced SSID Spoofing** - Generowanie realistycznych nazw SSID na podstawie otoczenia  
+- **Statystyki w czasie rzeczywistym** - Wizualizacja danych w formie wykresów na interfejsie web  
+- **Wsparcie Enterprise WiFi** - Emulacja sieci korporacyjnych z autentykacją 802.1X  
+- **Energy Saving Mode** - Optymalizacja zużycia energii dla pracy bateryjnej  
+- **Multi-AP Synchronization** - Koordynacja wielu urządzeń do tworzenia złożonych scenariuszy  
+- **AI-Powered Patterns** - Generowanie ruchu sieciowego z wykorzystaniem modeli ML  
+- **Captive Portal Integration** - Tworzenie interaktywnych portali przechwytujących  
+- **Bluetooth Low Energy Spoofing** - Rozszerzenie z połączeniem ESP 32 o emulację urządzeń BLE  
+- **Wsparcie OpenWRT** - Portowanie rozwiązania na routery z customowym firmware  
+- **RF Shielding Analytics** - Monitorowanie skuteczności maskowania sygnału  
+- **Cross-Platform Client** - Dedykowana aplikacja mobilna do zarządzania urządzeniem  
 
 ## 🌟 Podsumowanie
 
