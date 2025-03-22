@@ -1,0 +1,11 @@
+{
+  "name": "BS3",
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [
+        { "path": "Beacon_Spammer_RGB.ino.nodemcu.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
