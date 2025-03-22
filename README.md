@@ -1,3 +1,4 @@
+![Projekt bez nazwy](https://github.com/user-attachments/assets/c55a62b6-598a-4503-94cc-8d73c1f7a948)
 # 📡 Projekt Beacon Spammer 🚀
 Cześć! 👋 Witam Was w projekcie **Beacon Spammer**, który pozwala na generowanie fałszywych sieci Wi-Fi (SSID) za pomocą mikrokontrolera ESP8266. To narzędzie może być użyteczne w różnych scenariuszach, takich jak testowanie bezpieczeństwa sieci Wi-Fi 🔐, badanie zachowań urządzeń bezprzewodowych 🧑‍💻, czy po prostu eksperymentowanie z technologią 💡.
 
