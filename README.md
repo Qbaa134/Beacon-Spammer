@@ -11,6 +11,7 @@ Cześć! 👋 Witam Was w projekcie **Beacon Spammer**, który pozwala na genero
 Celem tego projektu jest stworzenie narzędzia, które pozwala na emulowanie sieci Wi-Fi, wysyłając regularnie pakiety beacon z fałszywymi SSID. Każdy pakiet beacon symuluje prawdziwą sieć Wi-Fi, co sprawia, że urządzenia w pobliżu wykrywają "nową" sieć. 🌍
 
 Możesz skonfigurować prefiks SSID, który będzie dodawany do każdej wysyłanej sieci. Dzięki temu możesz łatwo generować dużą liczbę różnych SSID, które będą widoczne na innych urządzeniach w zasięgu. 📱💻
+### W przyszłści będzie możliwość wykorzystania w projekcie ekranu `OLED`, przycisków oraz bedzie implementacvja innych funkcji hakerskich!
 
 ## 📦 Wymagania
 
