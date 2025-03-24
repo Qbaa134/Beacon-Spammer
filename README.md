@@ -4,6 +4,9 @@ Cześć! 👋 Witam Was w projekcie **Beacon Spammer**, który pozwala na genero
 
 # W najnowszej wersji skryptu jest również Deauther!
 
+> [!WARNING]
+> To narzędzie jest przeznaczone do celów edukacyjnych i testowania własnych sieci. Nie używaj go nielegalnie na cudzych sieciach.
+
 # **NOWOŚĆ!**
 ## **Teraz można wgrać szybciej skrypt [z oficjalnej strony projektu](https://qbaa134.github.io/Beacon-Spammer).**
 
@@ -36,7 +39,7 @@ Aby uruchomić skrypt będziesz potrzebował:
 - (Opcjonalnie dioda Shottky)
 
 ## 🔌 Podłączenie
-![Tekst akapitu (1)](https://github.com/user-attachments/assets/51fac1a1-21c7-4ba1-a488-8bcc67fbcc9d)
+![Tekst akapitu (2)](https://github.com/user-attachments/assets/6b8b0966-31f0-4986-8b04-8d0c86dcdeed)
 
 
 | **Źródło**        | **Cel**          |
@@ -48,7 +51,7 @@ Aby uruchomić skrypt będziesz potrzebował:
 | Switch            | Step Up +        |
 | Step Up +         | 10uF             |
 | Step Up -         | 10uF             |
-| Step Up OUT +     | 3V3              |
+| Step Up OUT +     | 5V              |
 | Step Up OUT -     | G                |
 | RGB GND           | G                |
 | RGB R             | D5               |
