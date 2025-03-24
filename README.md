@@ -2,6 +2,8 @@
 # 📡 Projekt Beacon Spammer 🚀
 Cześć! 👋 Witam Was w projekcie **Beacon Spammer**, który pozwala na generowanie fałszywych sieci Wi-Fi (SSID) za pomocą mikrokontrolera ESP8266. To narzędzie może być użyteczne w różnych scenariuszach, takich jak testowanie bezpieczeństwa sieci Wi-Fi 🔐, badanie zachowań urządzeń bezprzewodowych 🧑‍💻, czy po prostu eksperymentowanie z technologią 💡.
 
+# W najnowszej wersji skryptu jest również Deauther!
+
 # **NOWOŚĆ!**
 ## **Teraz można wgrać szybciej skrypt [z oficjalnej strony projektu](https://qbaa134.github.io/Beacon-Spammer).**
 
@@ -113,11 +115,39 @@ Te dwa sposoby dodadzą U+200B w miejscu kursora.
 ## Wersja z RGB
 Wersja z RGB jest taka sama jak wersja z interfejsem sieciowym, ale do Esp podłączamy diodę, która w zależności od wykonywanej funkcji świeci na dany kolor.
 
-## ⚙️ Jak to działa?
+# ⚠️ESP8266 Deauther⚠️
+
+## Co to jest Deauther?
+
+Deauther to specjalistyczne oprogramowanie, które działa na mikrokontrolerze ESP8266 (lub ESP32) i pozwala na przeprowadzanie testów sieci Wi-Fi poprzez wysyłanie pakietów deautoryzacyjnych (deauthentication) oraz disassociacyjnych (disassociation). Głównym celem jest edukacja i testowanie zabezpieczeń sieci bezprzewodowych. Projekt ten jest popularny w środowisku hakerów etycznych oraz pentesterów.
+
+# Instalacja Deauthera
+1. W przeglądarce na komputerze wejdź na [stronę projektu](https://qbaa134.github.io/Beacon-Spammer), a następnie wybierz punkt z Deautherem w nazwie.
+   - WiFi Deauther (ESP8266).
+2. Kliknij `Connect`, przejdź dalej i wgraj plik.
+3. Po wgraniu Deauther rozłącza urządzenia od wszystkich dostępnych sieci.
+### Uwaga! Używaj skryptu tylko i wyłącznie na własnych sieciach!
+
+## Jak działa Deauther?
+
+Deauther korzysta z możliwości ESP8266 do monitorowania i wysyłania ramek w sieci Wi-Fi. Zasada działania opiera się na lukach w standardzie 802.11, który pozwala na przesyłanie niezaszyfrowanych ramek sterujących — w tym właśnie ramek deauth i disassoc. 
+
+- **Deauthentication** — pakiet informuje klienta, że został nieautoryzowany z siecią. Klient przestaje być połączony z routerem.
+- **Disassociation** — pakiet mówi klientowi, że połączenie z punktem dostępowym zostało zerwane. Klient nie zrywa pełnego połączenia, ale musi przejść ponowną negocjację połączenia.
+
+
+### Legalność i ostrzeżenie
+
+Deauther jest narzędziem edukacyjnym. Używanie go bez zgody właściciela sieci jest nielegalne i może prowadzić do konsekwencji prawnych. Celem tego projektu jest zwiększanie świadomości o bezpieczeństwie Wi-Fi.
+
+Gotowy na dalsze modyfikacje, np. sekcję o konfiguracji?
+
+
+## ⚙️ Jak działa Beacon Spammer?
 
 Projekt bazuje na wykorzystywaniu funkcji ESP8266 do emulowania sieci Wi-Fi poprzez wysyłanie specjalnie sformatowanych pakietów beacon. Pakiety te zawierają informacje o SSID (nazwie sieci), które będą widoczne dla urządzeń w zasięgu.
-
-### Struktura pakietu beacon
+## Wszystkie informacje poniżej dotyczą pliku `.ino`
+### Struktura pakietu beacon 
 
 Pakiety beacon zawierają różne informacje, w tym:
 
@@ -183,14 +213,6 @@ Podczas działania programu na `Serial Monitor` możesz śledzić, jakie SSID zo
 ### Testowanie sieci Wi-Fi
 
 Możesz użyć tego projektu do testowania, jak różne urządzenia reagują na wiele dostępnych sieci Wi-Fi. Dzięki temu dowiesz się, jak systemy operacyjne (np. Android, Windows) wykrywają i sortują sieci, a także czy są w stanie rozpoznać fałszywe SSID.
-
-### Symulacja ataków
-
-Fake SSID Generator może być użyty do symulacji ataków typu "Evil Twin", gdzie tworzysz fałszywą sieć, która ma ten sam SSID, co prawdziwa sieć, aby podszyć się pod nią. Takie techniki są stosowane w testach penetracyjnych, aby sprawdzić, jak dobrze chronione są sieci bezprzewodowe.
-
-### Monitorowanie sieci
-
-Możesz również wykorzystać projekt do monitorowania, które urządzenia są widoczne w twojej okolicy, emulując sieci z różnymi SSID. Może to być pomocne w analizach bezpieczeństwa Wi-Fi lub po prostu w eksperymentach związanych z technologią sieciową.
 
 ## 📦 Obudowa
 Jeśli masz Wemos D1 mini, możesz wydrukować dedykowaną obudowę, korzystając z pliku w formacie **.3mf**. Dzięki temu Twoje urządzenie będzie lepiej chronione i estetycznie wykończone.
