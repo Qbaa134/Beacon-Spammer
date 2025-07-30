@@ -1,152 +1,326 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8" />
-    <title>Beacon Spammer</title>
-    <meta name="description" content="Easily allow users to install Beacon Spammer." />
+    <title>Beacon Spammer | Advanced Toolkit</title>
+    <meta name="description" content="Advanced wireless toolkit for security research" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark light" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: radial-gradient(circle, #0f0f0f, #1a1a2e);
-        color: #e0e0e0;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        animation: background-flow 10s ease-in-out infinite alternate;
-      }
+        :root {
+            --primary: #00ff88;
+            --primary-dark: #00cc6a;
+            --secondary: #0d8eff;
+            --bg-dark: #0a0e14;
+            --bg-darker: #06090d;
+            --text: #e6edf3;
+            --text-dim: #7d8590;
+            --alert: #ff5555;
+            --card-bg: rgba(13, 17, 23, 0.92);
+            --border: rgba(48, 54, 61, 0.6);
+            --success: #00ff88;
+        }
 
-      @keyframes background-flow {
-        0% { background: radial-gradient(circle, #0f0f0f, #1a1a2e); }
-        100% { background: radial-gradient(circle, #1a1a2e, #0f0f0f); }
-      }
-
-      .content {
-        max-width: 600px;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.9);
-        border-radius: 20px;
-        box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
-        text-align: center;
-        transform: scale(1);
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .content:hover {
-        transform: scale(1.05);
-      }
-
-      h1 {
-        font-size: 2.8em;
-        margin-bottom: 0.5em;
-        color: #00ffcc;
-        text-shadow: 0 0 20px #00ffcc;
-      }
-
-      p {
-        font-size: 1.2em;
-        margin-bottom: 1em;
-      }
-
-      .radios li {
-        list-style: none;
-        line-height: 2em;
-      }
-
-      label {
-        font-size: 1.2em;
-        cursor: pointer;
-        transition: color 0.3s ease-in-out;
-      }
-
-      input[type="radio"] {
-        transform: scale(1.5);
-        margin-right: 10px;
-      }
-
-      input[type="radio"]:checked + label {
-        color: #00ffcc;
-      }
-
-      esp-web-install-button {
-        background: linear-gradient(145deg, #00ffcc, #008b8b);
-        color: #000;
-        padding: 12px 24px;
-        border-radius: 12px;
-        font-size: 1.2em;
-        font-weight: bold;
-        box-shadow: 0 5px 20px rgba(0, 255, 255, 0.8);
-        cursor: pointer;
-        transition: 0.3s ease-in-out;
-      }
-
-      esp-web-install-button:hover {
-        background: #00e6e6;
-        box-shadow: 0 0 30px rgba(0, 255, 255, 1);
-      }
-
-      .invisible {
-        display: none;
-      }
-
-      @media (prefers-color-scheme: light) {
         body {
-          background: #f5f5f5;
-          color: #333;
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: var(--bg-darker);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%),
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.03) 0%, transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(13, 142, 255, 0.03) 0%, transparent 25%);
+            line-height: 1.6;
+            font-weight: 400;
         }
-        .content {
-          background: #fff;
-          box-shadow: 0 0 20px #6200ea;
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            padding: 2rem;
         }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
         h1 {
-          color: #6200ea;
+            color: var(--primary);
+            margin-top: 0;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            font-size: 1.8rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.75rem;
+            position: relative;
         }
-      }
+
+        h1::after {
+            content: '_';
+            color: var(--primary);
+            animation: blink 1s step-end infinite;
+            position: absolute;
+        }
+
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .device-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2.5rem 0;
+        }
+
+        .device-item {
+            padding: 0.85rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .device-item:last-child {
+            border-bottom: none;
+        }
+
+        .device-radio {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .device-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            font-weight: 450;
+            font-size: 0.95rem;
+        }
+
+        .device-label::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--text-dim);
+            border-radius: 50%;
+            margin-right: 1.2rem;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .device-radio:checked + .device-label {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .device-radio:checked + .device-label::before {
+            border-color: var(--primary);
+            background: radial-gradient(circle, var(--primary) 40%, transparent 50%);
+            box-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+        }
+
+        .device-radio:focus + .device-label {
+            outline: 1px dashed var(--primary);
+        }
+
+        .alert {
+            background: rgba(255, 85, 85, 0.08);
+            border-left: 4px solid var(--alert);
+            padding: 1.2rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: flex-start;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .alert::before {
+            content: '!';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: var(--alert);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .alert-content {
+            flex: 1;
+            margin-left: 1.5rem;
+        }
+
+        .alert-title {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: var(--alert);
+            font-size: 0.95rem;
+        }
+
+        .alert-message {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        esp-web-install-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #000;
+            border: none;
+            padding: 1rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+        }
+
+        esp-web-install-button.visible {
+            opacity: 1;
+            height: auto;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        esp-web-install-button:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .version {
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            text-align: center;
+            margin-top: 2.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .card {
+                padding: 1.8rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --primary: #0366d6;
+                --primary-dark: #0250a8;
+                --secondary: #28a745;
+                --bg-dark: #f6f8fa;
+                --bg-darker: #ffffff;
+                --text: #24292e;
+                --text-dim: #586069;
+                --alert: #d73a49;
+                --card-bg: rgba(255, 255, 255, 0.96);
+                --border: rgba(27, 31, 35, 0.15);
+            }
+            
+            esp-web-install-button {
+                color: white;
+                background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            }
+        }
     </style>
 
     <script type="module" src="https://unpkg.com/esp-web-tools@8.0.1/dist/web/install-button.js?module"></script>
-  </head>
+</head>
 
-  <body>
-    <div class="content">
-      <h1>🚀 Qbaa134 Beacon Spammer</h1>
-      <p>Select your hardware:</p>
-      <ul class="radios">
-        <li>
-          <input type="radio" id="BS1" name="type" value="BS1" />
-          <label for="BS1">Beacon Spammer Classic (ESP8266)</label>
-        </li>
-        <li>
-          <input type="radio" id="BS2" name="type" value="BS2" />
-          <label for="BS2">Beacon Spammer Web Interface (ESP8266)</label>
-        </li>  
-        <li>
-          <input type="radio" id="BS3" name="type" value="BS3" />
-          <label for="BS3">Beacon Spammer Web Interface & RGB (ESP8266)</label>
-        </li>
-        <li>
-          <input type="radio" id="D1" name="type" value="D1" />
-          <label for="BS3">WiFi Deauther (ESP8266)</label>
-        </li>     
-      </ul>
-      <p class="button-row">
-        <esp-web-install-button class="invisible"> Install Firmware</esp-web-install-button>
-      </p>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Qbaa134 Wireless Toolkit</h1>
+            
+            <div class="alert">
+                <div class="alert-content">
+                    <div class="alert-title">NEW RELEASE</div>
+                    <div class="alert-message">Added new CLI deauther module with enhanced packet injection capabilities. Use with caution.</div>
+                </div>
+            </div>
+            
+            <ul class="device-list">
+                <li class="device-item">
+                    <input type="radio" id="BS1" name="type" value="BS1" class="device-radio">
+                    <label for="BS1" class="device-label">Beacon Spammer Classic (ESP8266)</label>
+                </li>
+                <li class="device-item">
+                    <input type="radio" id="BS2" name="type" value="BS2" class="device-radio">
+                    <label for="BS2" class="device-label">Beacon Spammer Web Interface (ESP8266)</label>
+                </li>  
+                <li class="device-item">
+                    <input type="radio" id="BS3" name="type" value="BS3" class="device-radio">
+                    <label for="BS3" class="device-label">Beacon Spammer Web Interface & RGB (ESP8266)</label>
+                </li>
+                <li class="device-item">
+                    <input type="radio" id="D1" name="type" value="D1" class="device-radio">
+                    <label for="D1" class="device-label">WiFi Deauther CLI (ESP8266)</label>
+                </li>     
+            </ul>
+
+            <esp-web-install-button class="install-btn">Install Firmware</esp-web-install-button>
+            
+            <div class="version">v4.0.0 | Build 0823</div>
+        </div>
     </div>
 
     <script>
-      document.querySelectorAll('input[name="type"]').forEach((radio) =>
-        radio.addEventListener("change", () => {
-          const button = document.querySelector("esp-web-install-button");
-          button.manifest = `bin/manifest_${radio.value}.json`;
-          button.classList.remove("invisible");
-        })
-      );
+        document.querySelectorAll('.device-radio').forEach((radio) => {
+            radio.addEventListener('change', () => {
+                const button = document.querySelector('esp-web-install-button');
+                button.manifest = `bin/manifest_${radio.value}.json`;
+                button.classList.add('visible');
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
