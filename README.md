@@ -1,247 +1,243 @@
 ![Projekt bez nazwy](https://github.com/user-attachments/assets/c55a62b6-598a-4503-94cc-8d73c1f7a948)
-# 📡 Projekt Beacon Spammer 🚀
-Cześć! 👋 Witam Was w projekcie **Beacon Spammer**, który pozwala na generowanie fałszywych sieci Wi-Fi (SSID) za pomocą mikrokontrolera ESP8266. To narzędzie może być użyteczne w różnych scenariuszach, takich jak testowanie bezpieczeństwa sieci Wi-Fi 🔐, badanie zachowań urządzeń bezprzewodowych 🧑‍💻, czy po prostu eksperymentowanie z technologią 💡.
+# 📡 Beacon Spammer Project 🚀
 
-# W najnowszej wersji skryptu jest również Deauther!
+Hi! 👋 Welcome to the **Beacon Spammer** project, which allows you to generate fake Wi-Fi networks (SSIDs) using an ESP8266 microcontroller. This tool can be useful in various scenarios such as testing Wi-Fi network security 🔐, studying wireless device behavior 🧑‍💻, or simply experimenting with technology 💡.
+
+# The latest version of the script also includes a Deauther!
 
 > [!WARNING]
-> To narzędzie jest przeznaczone do celów edukacyjnych i testowania własnych sieci. Nie używaj go nielegalnie na cudzych sieciach.
+> This tool is intended for educational purposes and testing your own networks. Do not use it illegally on other people's networks.
 
-# **NOWOŚĆ!**
-## **Teraz można wgrać szybciej skrypt [z oficjalnej strony projektu](https://qbaa134.github.io/Beacon-Spammer).**
+# **NEW!**
+## **You can now upload the script faster [from the project's official website](https://qbaa134.github.io/Beacon-Spammer).**
 
+## 🎯 Project Goal
 
-## 🎯 Cel projektu
+The goal of this project is to create a tool that emulates Wi-Fi networks by regularly sending beacon packets with fake SSIDs. Each beacon packet simulates a real Wi-Fi network, making nearby devices detect a "new" network. 🌍
 
-Celem tego projektu jest stworzenie narzędzia, które pozwala na emulowanie sieci Wi-Fi, wysyłając regularnie pakiety beacon z fałszywymi SSID. Każdy pakiet beacon symuluje prawdziwą sieć Wi-Fi, co sprawia, że urządzenia w pobliżu wykrywają "nową" sieć. 🌍
+You can configure an SSID prefix that will be added to each sent network. This allows you to easily generate a large number of different SSIDs that will be visible on other devices within range. 📱💻
+### In the future, there will be the possibility to use an `OLED` screen, buttons, and the implementation of other hacking features!
 
-Możesz skonfigurować prefiks SSID, który będzie dodawany do każdej wysyłanej sieci. Dzięki temu możesz łatwo generować dużą liczbę różnych SSID, które będą widoczne na innych urządzeniach w zasięgu. 📱💻
-### W przyszłści będzie możliwość wykorzystania w projekcie ekranu `OLED`, przycisków oraz bedzie implementacvja innych funkcji hakerskich!
-
-## 📦 Wymagania
-
+## 📦 Requirements
 
 ![image](https://github.com/user-attachments/assets/6d378cec-3d35-4e42-a325-15104f413880)
-Aby uruchomić skrypt będziesz potrzebował:
-- Mikrokontroler ESP8266 (np. NodeMCU, Wemos D1 Mini):
-- **Środowisko Arduino IDE** z wgranym odpowiednim środowiskiem dla ESP8266 lub [stronę projektu](https://qbaa134.github.io/Beacon-Spammer)
-- Kabel USB do połączenia mikrokontrolera z komputerem
-- (Opcjonalnie) Dodatkowe biblioteki Arduino
+To run the script, you will need:
+- ESP8266 microcontroller (e.g., NodeMCU, Wemos D1 Mini)
+- **Arduino IDE environment** with the appropriate ESP8266 setup or [the project website](https://qbaa134.github.io/Beacon-Spammer)
+- USB cable to connect the microcontroller to your computer
+- (Optional) Additional Arduino libraries
 
-### Opcjonalne części:
-- Li Po akumulator (najlepiej 1000mAh)
-- Moduł Tp4056
-- Dioda RGB K851264
-- Kondensator 10uF
-- Kabelki i przewody
-- Mini Switch SPDT
-- Przetwornica Mini Step Up 3,7V -> 5V
-- (Opcjonalnie dioda Shottky)
+### Optional parts:
+- LiPo battery (preferably 1000mAh)
+- Tp4056 module
+- RGB LED K851264
+- 10uF capacitor
+- Wires and cables
+- Mini SPDT switch
+- Mini Step Up converter 3.7V -> 5V
+- (Optional Schottky diode)
 
-## 🔌 Podłączenie
-![Tekst akapitu (2)](https://github.com/user-attachments/assets/6b8b0966-31f0-4986-8b04-8d0c86dcdeed)
+## 🔌 Wiring
+![Wiring Diagram](https://github.com/user-attachments/assets/6b8b0966-31f0-4986-8b04-8d0c86dcdeed)
 
-
-| **Źródło**        | **Cel**          |
+| **Source**        | **Destination**  |
 |-------------------|------------------|
-| Li Po +           | Tp4056 B+        |
-| Li Po -           | Tp4056 B-        |
+| LiPo +            | Tp4056 B+        |
+| LiPo -            | Tp4056 B-        |
 | Tp4056 OUT +      | Switch           |
 | Tp4056 OUT -      | Step Up -        |
 | Switch            | Step Up +        |
 | Step Up +         | 10uF             |
 | Step Up -         | 10uF             |
-| Step Up OUT +     | 5V              |
+| Step Up OUT +     | 5V               |
 | Step Up OUT -     | G                |
 | RGB GND           | G                |
 | RGB R             | D5               |
 | RGB B             | D7               |
 | RGB G             | D6               |
 
-Kolory diody:
-- Czerwony: Brak aktywności
-- Niebieski: Klient podłączony do AP
-- Zielony: Trwa transmisja pakietów / Atak Rozpoczęty
+LED colors:
+- Red: No activity
+- Blue: Client connected to AP
+- Green: Packet transmission in progress / Attack Started
 
-## Instalacja
-## Arduino IDE
-1. **Zainstaluj Arduino IDE**: Jeśli jeszcze go nie masz, pobierz i zainstaluj Arduino IDE z [oficjalnej strony](https://www.arduino.cc/en/software).
+## Installation
+### Arduino IDE
+1. **Install Arduino IDE**: If you don't have it yet, download and install Arduino IDE from the [official website](https://www.arduino.cc/en/software).
    
-2. **Skonfiguruj ESP8266 w Arduino IDE**:
-   - Otwórz Arduino IDE.
-   - Wybierz `Plik` → `Preferencje` i w polu "Dodatkowe menedżery URL dla płytek" dodaj adres: `http://arduino.esp8266.com/stable/package_esp8266com_index.json`.
-   - Wybierz `Narzędzia` → `Płytka` → `Płytki menedżer`, wyszukaj `ESP8266` i zainstaluj odpowiednią wersję.
+2. **Configure ESP8266 in Arduino IDE**:
+   - Open Arduino IDE.
+   - Go to `File` → `Preferences` and add the following URL in "Additional Boards Manager URLs": `http://arduino.esp8266.com/stable/package_esp8266com_index.json`.
+   - Go to `Tools` → `Board` → `Boards Manager`, search for `ESP8266`, and install the appropriate version.
    
-3. **Załaduj kod do ESP8266**: Skopiuj kod projektu do nowego szkicu w Arduino IDE i załaduj go do swojego mikrokontrolera ESP8266.
+3. **Upload the code to ESP8266**: Copy the project code into a new sketch in Arduino IDE and upload it to your ESP8266 microcontroller.
 
-4. **Monitoruj dane na serial monitorze**: Po wgraniu programu możesz monitorować proces generowania pakietów SSID za pomocą `Serial Monitor` w Arduino IDE.
+4. **Monitor data in the serial monitor**: After uploading the program, you can monitor the SSID packet generation process using the `Serial Monitor` in Arduino IDE.
 
-## Pliki bin
-1. W przeglądarce na komputerze wejdź na [stronę projektu](https://qbaa134.github.io/Beacon-Spammer), a następnie wybierz wersję oprogramowania.
-   - Wersja klasyczna z zaimplementowanymi w kodzie nazwami sieci.
-   - Wersja  z interfejsem sieciowym, przez który wpisujemy nazwy sieci.
-2. Kliknij `Connect`, przejdź dalej i wgraj plik.
+### Bin Files
+1. In your browser, go to the [project website](https://qbaa134.github.io/Beacon-Spammer) and select the software version.
+   - Classic version with network names hardcoded in the script.
+   - Version with a web interface where you enter network names.
+2. Click `Connect`, proceed, and upload the file.
 
-# Wersja z Interfejserm sieciowym
-1. Po wgraniu oprogramowania połącz się z wifi `beacon` wpisując hasło `password`.
-2. W przeglądarce wpisz adres IP Esp8266, czyli `192.168.4.1.` lub [kliknij w link](http://192.168.4.1/).
-3. Wpisz 100 SSID sieci i kliknij `Zielony Przycisk`.
-4. Wejdź do [serial monitora](https://qbaa134.github.io/esp-tool/) i połacz się z Esp8266.
+## Web Interface Version
+1. After uploading the software, connect to the Wi-Fi network `beacon` with the password `password`.
+2. In your browser, enter the ESP8266's IP address: `192.168.4.1` or [click this link](http://192.168.4.1/).
+3. Enter 100 SSIDs and click the `Green Button`.
+4. Open the [serial monitor](https://qbaa134.github.io/esp-tool/) and connect to the ESP8266.
 ![image](https://github.com/user-attachments/assets/c70ba991-65eb-4a4b-bf80-91f123b81345)
 
 - `SSID_name`
 - `SSID_name`
 - `SSID_name`  
 - `SSID_name`
-- `itd.`
+- `etc.`
 
-## Wpisywanie tego samego SSID
-Aby sieci były takie same trzeba dodać specjalny znak na końcu SSID.
-- `siećx`  
-- `siećx` (zawiera ukryty znak po nazwie)
-- `siećx` (dwa ukryte znaki)
-- `siećx` (trzy ukryte znaki)
-- `siećx` (cztery ukryte znaki)
-- `itd.`
+## Entering the Same SSID
+To make the networks appear identical, add a special character at the end of the SSID.
+- `networkx`  
+- `networkx` (contains a hidden character after the name)
+- `networkx` (two hidden characters)
+- `networkx` (three hidden characters)
+- `networkx` (four hidden characters)
+- `etc.`
 
-1.Skopiuj znak Zero-Width Space:
+1. Copy the Zero-Width Space character:
 
-`  `← tutaj jest zero-width space (U+200B)
+`  `← zero-width space here (U+200B)
 
-To wygląda jak "pusta linia", ale znak tam jest. Wklej go na końcu SSID, ile razy chcesz.
+It looks like an "empty line," but the character is there. Paste it at the end of the SSID as many times as you want.
 
-2.Możesz go wpisać za pomocą kombinacji:
+2. You can also type it using the key combination:
 
-Alt + 8203 (na klawiaturze numerycznej)
+Alt + 8203 (on the numeric keypad)
 
-Te dwa sposoby dodadzą U+200B w miejscu kursora.
-## Wersja z RGB
-Wersja z RGB jest taka sama jak wersja z interfejsem sieciowym, ale do Esp podłączamy diodę, która w zależności od wykonywanej funkcji świeci na dany kolor.
+These two methods will add U+200B at the cursor position.
+
+## RGB Version
+The RGB version is the same as the web interface version, but we connect an LED to the ESP, which lights up in different colors depending on the function being performed.
 
 # ⚠️ESP8266 Deauther⚠️
 
-## Co to jest Deauther?
+## What is a Deauther?
 
-Deauther to specjalistyczne oprogramowanie, które działa na mikrokontrolerze ESP8266 (lub ESP32) i pozwala na przeprowadzanie testów sieci Wi-Fi poprzez wysyłanie pakietów deautoryzacyjnych (deauthentication) oraz disassociacyjnych (disassociation). Głównym celem jest edukacja i testowanie zabezpieczeń sieci bezprzewodowych. Projekt ten jest popularny w środowisku hakerów etycznych oraz pentesterów.
+A Deauther is specialized software that runs on an ESP8266 (or ESP32) microcontroller and allows you to perform Wi-Fi network tests by sending deauthentication and disassociation packets. The main purpose is education and testing wireless network security. This project is popular among ethical hackers and pentesters.
 
-# Instalacja Deauthera
-1. W przeglądarce na komputerze wejdź na [stronę projektu](https://qbaa134.github.io/Beacon-Spammer), a następnie wybierz punkt z Deautherem w nazwie.
+# Deauther Installation
+1. In your browser, go to the [project website](https://qbaa134.github.io/Beacon-Spammer) and select the option with "Deauther" in the name.
    - WiFi Deauther (ESP8266).
-2. Kliknij `Connect`, przejdź dalej i wgraj plik.
-3. Po wgraniu Deauther rozłącza urządzenia od wszystkich dostępnych sieci.
-### Uwaga! Używaj skryptu tylko i wyłącznie na własnych sieciach!
+2. Click `Connect`, proceed, and upload the file.
+3. After uploading, the Deauther disconnects devices from all available networks.
+### Warning! Use this script only on your own networks!
 
-## Jak działa Deauther?
+## How Does the Deauther Work?
 
-Deauther korzysta z możliwości ESP8266 do monitorowania i wysyłania ramek w sieci Wi-Fi. Zasada działania opiera się na lukach w standardzie 802.11, który pozwala na przesyłanie niezaszyfrowanych ramek sterujących — w tym właśnie ramek deauth i disassoc. 
+The Deauther uses the ESP8266's ability to monitor and send Wi-Fi frames. Its operation is based on vulnerabilities in the 802.11 standard, which allows sending unencrypted control frames—including deauth and disassoc frames.
 
-- **Deauthentication** — pakiet informuje klienta, że został nieautoryzowany z siecią. Klient przestaje być połączony z routerem.
-- **Disassociation** — pakiet mówi klientowi, że połączenie z punktem dostępowym zostało zerwane. Klient nie zrywa pełnego połączenia, ale musi przejść ponowną negocjację połączenia.
+- **Deauthentication** — the packet informs the client that it has been unauthorized from the network. The client disconnects from the router.
+- **Disassociation** — the packet tells the client that the connection with the access point has been terminated. The client does not fully disconnect but must renegotiate the connection.
 
+### Legality and Warning
 
-### Legalność i ostrzeżenie
+The Deauther is an educational tool. Using it without the network owner's consent is illegal and may lead to legal consequences. The goal of this project is to raise awareness about Wi-Fi security.
 
-Deauther jest narzędziem edukacyjnym. Używanie go bez zgody właściciela sieci jest nielegalne i może prowadzić do konsekwencji prawnych. Celem tego projektu jest zwiększanie świadomości o bezpieczeństwie Wi-Fi.
+Ready for further modifications, e.g., a configuration section?
 
-Gotowy na dalsze modyfikacje, np. sekcję o konfiguracji?
+## ⚙️ How Does Beacon Spammer Work?
 
+The project is based on using the ESP8266's capabilities to emulate Wi-Fi networks by sending specially formatted beacon packets. These packets contain SSID (network name) information that will be visible to nearby devices.
+## All information below refers to the `.ino` file.
+### Beacon Packet Structure
 
-## ⚙️ Jak działa Beacon Spammer?
+Beacon packets contain various information, including:
 
-Projekt bazuje na wykorzystywaniu funkcji ESP8266 do emulowania sieci Wi-Fi poprzez wysyłanie specjalnie sformatowanych pakietów beacon. Pakiety te zawierają informacje o SSID (nazwie sieci), które będą widoczne dla urządzeń w zasięgu.
-## Wszystkie informacje poniżej dotyczą pliku `.ino`
-### Struktura pakietu beacon 
+- **Device MAC address**: A unique hardware identifier used by Wi-Fi networks.
+- **SSID**: The Wi-Fi network name displayed to nearby devices.
+- **WPA/WPA2 version**: Specifies the type of security used in the network (optional).
 
-Pakiety beacon zawierają różne informacje, w tym:
+Each of these elements can be modified, providing great flexibility in manipulating what devices see in their list of available networks.
 
-- **Adres MAC urządzenia**: Unikalny identyfikator sprzętu, który jest wykorzystywany przez sieci Wi-Fi.
-- **SSID**: Nazwa sieci Wi-Fi, która jest prezentowana urządzeniom w pobliżu.
-- **Wersja WPA/WPA2**: Określenie, jaki typ zabezpieczeń jest używany w danej sieci (opcjonalnie).
+### Generating SSIDs
 
-Każdy z tych elementów może być zmieniany, co daje ogromne możliwości manipulacji w tym, co urządzenia widzą w swoich listach dostępnych sieci.
-
-### Generowanie SSID
-
-W tym projekcie SSID są generowane dynamicznie, a ich nazwy zaczynają się od określonego prefiksu. Na przykład, jeżeli ustawisz prefiks na `MyFakeSSID_`, wygenerowane SSID mogą wyglądać tak:
+In this project, SSIDs are generated dynamically, and their names start with a specific prefix. For example, if you set the prefix to `MyFakeSSID_`, the generated SSIDs might look like this:
 
 - `MyFakeSSID_1`
 - `MyFakeSSID_2`
 - `MyFakeSSID_3`
-- itd.
-<img src="https://github.com/user-attachments/assets/221b3a9a-a3d4-42a1-ae6d-21971daa90ac" alt="Opis obrazu" width="400"/>
+- etc.
+<img src="https://github.com/user-attachments/assets/221b3a9a-a3d4-42a1-ae6d-21971daa90ac" alt="Image description" width="400"/>
 
-Dzięki temu łatwo możesz tworzyć wiele sieci o różnych nazwach, co przydaje się w testach bezpieczeństwa.
+This makes it easy to create many networks with different names, which is useful for security testing.
 
-## 🛠️ Konfiguracja
+## 🛠️ Configuration
 
-### Zmiana prefiksu SSID
+### Changing the SSID Prefix
 
-Aby zmienić prefiks SSID (czyli nazwę generowanych sieci), wystarczy edytować/dodać zmienną w kodzie:
+To change the SSID prefix (i.e., the name of generated networks), simply edit/add the variable in the code:
 
 ```cpp
-"twojasieć\n";
+"yournetwork\n";
 ```
 
-Możesz zamienić `"twojasieć"` na dowolny ciąg znaków, który będzie początkiem nazw sieci.
+You can replace `"yournetwork"` with any string that will be the beginning of the network names.
 
 ### WPA2
 
-W projekcie zaimplementowano możliwość włączenia/wyłączenia trybu WPA2. Jeśli chcesz, aby twoje sieci były "zabezpieczone" przy pomocy WPA2, ustaw zmienną `wpa2` na `true`:
+The project includes the ability to enable/disable WPA2 mode. If you want your networks to be "secured" with WPA2, set the `wpa2` variable to `true`:
 
 ```cpp
-const bool wpa2 = true;  // Tryb WPA2
+const bool wpa2 = true;  // WPA2 mode
 ```
 
-Jeśli chcesz, aby sieci były "otwarte" (bez szyfrowania), ustaw ją na `false`.
+If you want the networks to be "open" (unencrypted), set it to `false`.
 
-### Randomizacja adresu MAC
+### MAC Address Randomization
 
-Adresy MAC generowane są losowo za pomocą funkcji `randomMac()`, co pozwala na emulowanie różnych urządzeń. Pierwszy bajt adresu MAC jest ustawiony na `0x02`, co oznacza, że adres jest lokalnie zarządzany (przeznaczony dla urządzeń, które generują losowe adresy MAC).
+MAC addresses are randomly generated using the `randomMac()` function, allowing the emulation of different devices. The first byte of the MAC address is set to `0x02`, meaning it is locally administered (intended for devices that generate random MAC addresses).
 
 ```cpp
 void randomMac() {
-  macAddr[0] = 0x02; // Unicast, lokalnie zarządzany
+  macAddr[0] = 0x02; // Unicast, locally administered
   for (int i = 1; i < 6; i++) {
      macAddr[i] = random(256);
   }
 }
 ```
 
-## 📊 Monitorowanie
+## 📊 Monitoring
 
-Podczas działania programu na `Serial Monitor` możesz śledzić, jakie SSID zostały wygenerowane, a także informacje o statusie wysyłania pakietów. Jest to szczególnie pomocne, jeśli chcesz debugować swój kod lub sprawdzić, jak wygląda wydajność generowania SSID.
+During operation, you can track which SSIDs have been generated and the status of packet transmission on the `Serial Monitor`. This is especially helpful if you want to debug your code or check the performance of SSID generation.
 
-## 🧰 Przykłady użycia
+## 🧰 Usage Examples
 
-### Testowanie sieci Wi-Fi
+### Testing Wi-Fi Networks
 
-Możesz użyć tego projektu do testowania, jak różne urządzenia reagują na wiele dostępnych sieci Wi-Fi. Dzięki temu dowiesz się, jak systemy operacyjne (np. Android, Windows) wykrywają i sortują sieci, a także czy są w stanie rozpoznać fałszywe SSID.
+You can use this project to test how different devices react to multiple available Wi-Fi networks. This will help you understand how operating systems (e.g., Android, Windows) detect and sort networks, and whether they can recognize fake SSIDs.
 
-## 📦 Obudowa
-Jeśli masz Wemos D1 mini, możesz wydrukować dedykowaną obudowę, korzystając z pliku w formacie **.3mf**. Dzięki temu Twoje urządzenie będzie lepiej chronione i estetycznie wykończone.
+## 📦 Enclosure
+If you have a Wemos D1 mini, you can print a dedicated enclosure using the **.3mf** file. This will better protect your device and give it a polished look.
 ![image](https://github.com/user-attachments/assets/a028a3a8-ed1c-46cb-9f28-6c569c86478f)
 
-## 🚀 Przyszłościowe Rozwinięcia
+## 🚀 Future Developments
 
-- **Wsparcie WPA3** - Implementacja generowania beaconów ze wsparciem najnowszego standardu zabezpieczeń  
-- **Tryb Stealth** - Losowe odstępy czasowe między pakietami dla uniknięcia wykrycia  
-- **Dynamiczna zmiana kanałów** - Automatyczne skanowanie i wybór optymalnych kanałów WiFi  
-- **Deauthentication Attack** - Integracja funkcji wysyłania pakietów deauth  
-- **Geofencing** - Auto-wyłączanie transmisji w oparciu o lokalizację GPS  
-- **Advanced SSID Spoofing** - Generowanie realistycznych nazw SSID na podstawie otoczenia  
-- **Statystyki w czasie rzeczywistym** - Wizualizacja danych w formie wykresów na interfejsie web  
-- **Wsparcie Enterprise WiFi** - Emulacja sieci korporacyjnych z autentykacją 802.1X  
-- **Energy Saving Mode** - Optymalizacja zużycia energii dla pracy bateryjnej  
-- **Multi-AP Synchronization** - Koordynacja wielu urządzeń do tworzenia złożonych scenariuszy  
-- **AI-Powered Patterns** - Generowanie ruchu sieciowego z wykorzystaniem modeli ML  
-- **Captive Portal Integration** - Tworzenie interaktywnych portali przechwytujących  
-- **Bluetooth Low Energy Spoofing** - Rozszerzenie z połączeniem ESP 32 o emulację urządzeń BLE  
-- **Wsparcie OpenWRT** - Portowanie rozwiązania na routery z customowym firmware  
-- **RF Shielding Analytics** - Monitorowanie skuteczności maskowania sygnału  
-- **Cross-Platform Client** - Dedykowana aplikacja mobilna do zarządzania urządzeniem  
+- **WPA3 Support** - Implementing beacon generation with support for the latest security standard  
+- **Stealth Mode** - Random time intervals between packets to avoid detection  
+- **Dynamic Channel Switching** - Automatic scanning and selection of optimal Wi-Fi channels   
+- **Geofencing** - Auto-disabling transmission based on GPS location  
+- **Advanced SSID Spoofing** - Generating realistic SSID names based on the environment  
+- **Real-Time Statistics** - Data visualization in the form of charts on the web interface  
+- **Enterprise WiFi Support** - Emulating corporate networks with 802.1X authentication  
+- **Energy Saving Mode** - Optimizing power consumption for battery operation  
+- **Multi-AP Synchronization** - Coordinating multiple devices for complex scenarios  
+- **AI-Powered Patterns** - Generating network traffic using ML models  
+- **Captive Portal Integration** - Creating interactive captive portals  
+- **Bluetooth Low Energy Spoofing** - Extending with ESP32 for BLE device emulation  
+- **OpenWRT Support** - Porting the solution to routers with custom firmware  
+- **RF Shielding Analytics** - Monitoring signal masking effectiveness  
+- **Cross-Platform Client** - Dedicated mobile app for device management  
 
-## 🌟 Podsumowanie
+## 🌟 Summary
 
-**Beacon Spammer** to świetne narzędzie do eksperymentowania z technologią Wi-Fi, testowania bezpieczeństwa sieci, a także zabawy z mikrokontrolerami. Dzięki prostocie i elastyczności w konfiguracji możesz dostosować projekt do swoich potrzeb i zrealizować ciekawe projekty związane z sieciami bezprzewodowymi.
+**Beacon Spammer** is a great tool for experimenting with Wi-Fi technology, testing network security, and playing with microcontrollers. Thanks to its simplicity and configuration flexibility, you can adapt the project to your needs and implement interesting wireless network projects.
 
-Jeśli masz pytania lub sugestie dotyczące projektu, śmiało się nimi podziel! 🚀
+If you have any questions or suggestions about the project, feel free to share them! 🚀
